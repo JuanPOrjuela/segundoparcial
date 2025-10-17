@@ -5,9 +5,6 @@ import math
 import uuid
 import sys
 
-# --------------------
-# Agentes
-# --------------------
 class OperationAgent(Agent):
     """Agente genérico para operaciones. Mantiene una cola de tareas."""
     def __init__(self, unique_id, model, op_symbol, func):
@@ -150,9 +147,8 @@ class IOAgent(Agent):
         return stack[0]
 
 
-# --------------------
-# Model
-# --------------------
+# Modelo
+
 class CalcModel(Model):
     def __init__(self):
         super().__init__()
@@ -178,9 +174,8 @@ class CalcModel(Model):
         self.schedule.step()
 
 
-# --------------------
 # Interfaz de usuario (CLI) - SOLO EXPRESIÓN COMPLETA
-# --------------------
+
 def main():
     # mantener compatibilidad con '--test' si se desea
     if '--test' in sys.argv:
@@ -284,3 +279,4 @@ def run_tests():
 
 if __name__ == "__main__":
     main()
+
