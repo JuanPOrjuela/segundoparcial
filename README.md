@@ -34,7 +34,7 @@ Cada punto es representado por un agente ligero (`PointAgent`) y el `PerceptronM
 
 ---
 
-## Flujo de ejecución (cómo funciona)
+## Cómo funciona
 1. Se instancia `PerceptronModel` → se generan datos de entrenamiento y prueba y se inicializan pesos y bias aleatoriamente.
 2. Usuario ajusta sliders (tasa de aprendizaje, número de iteraciones).
 3. Al pulsar `iniciar`:
@@ -65,7 +65,7 @@ Se ejecutó una prueba headless con semilla fija para reproducibilidad (50 punto
 - Epochs usados: `3`  
 - Precisión en conjunto de prueba: `98.0%`
 
-> Interpretación: el perceptrón convergió en pocas iteraciones (3 epochs) y alcanzó alta precisión en los puntos de prueba (98%), consistente con datos linealmente separables y una tasa de aprendizaje adecuada.
+En otras palabras el perceptrón convergió en pocas iteraciones (3 epochs) y alcanzó alta precisión en los puntos de prueba (98%), consistente con datos linealmente separables y una tasa de aprendizaje adecuada.
 
 ---
 - **Ejemplos de uso**
@@ -87,17 +87,16 @@ Cada operador (`+ - * / ^`) es un **agente** autónomo. Recibe la expresión, la
 
 ---
 
-## Flujo de ejecución (cómo funciona)
+## Cómo funciona)
 1. El usuario ingresa la expresión completa en la CLI (o GUI).
 2. IOAgent tokeniza la expresión (números, operadores, paréntesis).
-3. IOAgent aplica shunting-yard → genera RPN respetando precedencia y `right-assoc` para `^`.
-4. IOAgent evalúa la RPN:
+3. . IOAgent evalúa la RPN:
    1. Si el token es número → push en pila.
    2. Si el token es operador → pop `b`, pop `a`, `request_operation(op, a, b)` → devuelve `task_id`.
    3. IOAgent ejecuta `wait_for_result(task_id)`, que llama `model.step()` en loop hasta obtener resultado o timeout.
    4. Si result ok → push `value` en pila; si error → propaga excepción.
-5. Al terminar RPN, la pila debe tener exactamente 1 valor → resultado final.
-6. IOAgent muestra el resultado al usuario.
+4. Al terminar RPN, la pila debe tener exactamente 1 valor → resultado final.
+5. IOAgent muestra el resultado al usuario.
 
 ---
 
@@ -127,7 +126,7 @@ Proyecto: calculadora científica en Kotlin con interfaz gráfica (Swing). Sopor
 <img width="2293" height="3162" alt="calculadorakotlin" src="https://github.com/user-attachments/assets/910822b1-0565-432d-ac5d-ae96e11ccbb2" />
 
 ---
-# El codigo se encuentra adjunto al repositorio con el nombre "calculadoracientifica"
+## El codigo se encuentra adjunto al repositorio con el nombre "calculadoracientifica"
 ---
 # Ejemplos del funcionamiento
 1. Ejemplo basico
